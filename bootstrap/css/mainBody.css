@@ -1,0 +1,22 @@
+#mainBody{
+	background-color: #BFFF94 !important;
+}
+.navbar-inner{
+background-image: linear-gradient(#61CB15, #61CB15 70%, #61CB15) !important;
+}
+#footerSection{
+	background: #1A3D00 !important;
+}
+
+#navbar-primary .navbar-nav {
+  width: 100%;
+  text-align: center;
+}
+#navbar-primary .navbar-nav > li {
+  display: inline-block;
+  float: none;
+}
+#navbar-primary .navbar-nav > li > a {
+  padding-left: 30px;
+  padding-right: 30px;
+}

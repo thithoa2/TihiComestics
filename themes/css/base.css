@@ -43,7 +43,7 @@
 #myCarousel:hover .carousel-control{display:block}
 .navbar .nav > .active > a, .navbar .nav > .active > a:hover, .navbar .nav > .active > a:focus {color:#fff; background-color: #CF0007;text-shadow: none;}
 /* Footer section--------------- */
-#footerSection {background: #202020;color: white;padding: 28px 0 44px;margin-top: 20px;border-top: 1px solid #444;}
+#footerSection {background: #1A3D00;color: white;padding: 28px 0 44px;margin-top: 20px;border-top: 1px solid #444;}
 #footerSection a{color:#ccc; font-size:11px; padding:0; line-height:24px; display:block; }
 #footerSection a:hover{color:#fff;  }
 #footerSection  #socialMedia a{ min-width:25px; display:inline; margin-right:6px; text-align:center; line-height:1.5em;}
@@ -66,7 +66,7 @@
 /* ------------------------------- */
 .navbar-search .srchTxt {border-radius: 0;border: 1px solid #444;}
 [class^="icon-"], [class*=" icon-"] {background-image: none;}
-.navbar .nav > li > a {padding:10px;color: #DDD;text-shadow: none;font-size: 16px;}
+.navbar .nav > li > a {padding:10px;color: white;text-shadow: none;font-size: 16px;}
 .navbar .nav > li > a:hover{color:#fff}
 #logoArea, #logoArea a{outline:none;}
 .alignR .checkbox input[type="checkbox"] {float: right;margin: 4px 0 8px 11px;}
@@ -76,6 +76,8 @@
 .navbar-search {margin-top: 8px;}
 /* Responsive--------------------- */
 /* Large desktop */
+.navbar .nav > li > a {color: blue;}
+.navbar .nav > li > a:hover {color: red;}
 @media (min-width: 1200px) {  }
 /* Portrait tablet to landscape and desktop */
 @media (min-width: 768px) and (max-width: 979px) {
@@ -84,7 +86,7 @@
 .navbar-search {margin-top: 8px;width: 100%;float: none;}
 #topMenu{height: auto;float: none;}
 #topMenu li{float: none;}
-.navbar .nav > li > a {border-top:1px solid #666; padding:0}
+.navbar .nav > li > a {color: blue;border-top:1px solid #666; padding:0}
 #sideManu,#topMenu{height:0}
 }
 /* Landscape phone to portrait tablet */
@@ -95,7 +97,7 @@
 .navbar-search {margin-top: 8px;width: 100%;float: none;}
 #topMenu{height: auto;float: none;}
 #topMenu li{float: none;}
-.navbar .nav > li > a {border-top:1px solid #666; padding:0}
+.navbar .nav > li > a { color: blue ;border-top:1px solid #666; padding:0}
  }
 /* Landscape phones and down */
 @media (max-width: 480px) {
@@ -103,5 +105,5 @@
 #sideManu, #topMenu{height:0}
 #topMenu{height: auto;float: none;}
 #topMenu li{float: none;}
-.navbar .nav > li > a {border-top:1px solid #666; padding:0}
+.navbar .nav > li > a { color: blue; border-top:1px solid #666; padding:0}
 }
