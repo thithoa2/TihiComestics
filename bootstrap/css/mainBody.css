@@ -20,3 +20,7 @@ background-image: linear-gradient(#61CB15, #61CB15 70%, #61CB15) !important;
   padding-left: 30px;
   padding-right: 30px;
 }
+
+.navbar-inner bar{
+	background-color: white !important;
+}
