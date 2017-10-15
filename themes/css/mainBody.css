@@ -1,3 +1,6 @@
 #mainBody{
 	background-color: #BFFF94;
 }
+.table table-bordered{
+	border: 1px solid #222;
+}
