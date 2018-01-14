@@ -56,9 +56,9 @@
 			<h3>Login Block</h3>
 		  </div>
 		  <div class="modal-body">
-			<form class="form-horizontal loginFrm" action="../controller/login.php" method="POST">
+			<form class="form-horizontal loginFrm" action="../controller/admin.php" method="POST">
 			  <div class="control-group">								
-				<input type="text" id="inputEmail" name ="nsmr" placeholder="User Name">
+				<input type="text" id="inputEmail" name ="name" placeholder="User Name">
 			  </div>
 			  <div class="control-group">
 				<input type="password" id="inputPassword" name="password" placeholder="Password">
@@ -68,7 +68,6 @@
 				<input type="checkbox"> Remember me
 				</label>
 			  </div>
-			
 			<button type="submit" class="btn btn-success">Đăng nhập</button>
 			</form>		
 			
@@ -85,33 +84,12 @@
 </div>
 </div>
 </div>
-<!-- Header End====================================================================== -->
+
 <div id="mainBody">
 	<div class="container">
 	<div class="row">
 <!-- Sidebar ================================================== -->
-	<div id="sidebar" class="span3">
-		<div class="well well-small"><a id="myCart" href="../view/product_summary.html"><img src="../themes/images/ico-cart.png" alt="cart">Giỏ hàng <span class="badge badge-warning pull-right">399.000đ</span></a></div>
-		<ul id="sideManu" class="nav nav-tabs nav-stacked">
-			<li class="subMenu open"><a> Son NYD</a>
-				<ul>
-				<li><a class="active" href="../products.html"><i class="icon-chevron-right"></i>Son cao cấp Lovely Kiss </a></li>
-				<li><a href="../products.html"><i class="icon-chevron-right"></i>Son kem Lovely Kiss</a></li>
-				<li><a href="../products.html"><i class="icon-chevron-right"></i>Son dưỡng</a></li>
-				</ul>
-			</li>
-			<li class="subMenu"><a> Cám gạo </a>
-				<ul>
-				<li><a class="active" href="../products.html"><i class="icon-chevron-right"></i>Cám gạo trân châu hoa hồng </a></li>
-				<li><a href="../products.html"><i class="icon-chevron-right"></i>Cám gạo đất sét Nhật</a></li>
-				<li><a href="../products.html"><i class="icon-chevron-right"></i>Cám gạo Trà xanh</a></li>
-				</ul>
-			</li>
-												
-		</ul>
-		<br/>
-		  
-	</div>
+	
 <!-- Sidebar end=============================================== -->
 	<div class="span9">
     <ul class="breadcrumb">
@@ -121,98 +99,29 @@
 	<h3> Đăng nhập</h3>	
 	<hr class="soft"/>
 	
-	<div class="row">
-		<div class="span4">
-			<div class="well">
-			<h5>TẠO TÀI KHOẢN</h5><br/>
-			<form action="../controller/register.php" method="POST">
-				  
-			
-			<div class="control-group">
-			<label class="control-label"  for="inputLnam"> Họ Tên <sup>*</sup></label>
-			<div class="controls">
-			  <input type="text" name="fullname" id="inputLnam" placeholder="Tên">
-			</div>
-		</div>
-
-		<div class="control-group">
-		<label class="control-label"  for="inpu_name">User Name <sup>*</sup></label>
-		<div class="controls">
-		  <input type="text" name="name" id="input_name" placeholder="User Name">
-		</div>
-	  	</div>
-
-	  	<div class="control-group">
-		<label class="control-label">Giới tính <sup>*</sup></label>
-		<div class="controls">
-		<select class="span1" name="sex">
-			<option value="">-</option>
-			<option value="1">Nam.</option>
-			<option value="2">Nữ</option>
-			<option value="3">Khác</option>
-		</select>
-		</div>
-		</div>
-
-	  	<div class="control-group">
-			<label class="control-label"  for="phone">Số điện thoại <sup>*</sup></label>
-			<div class="controls">
-			  <input type="text"  name="phone" id="phone" placeholder="số điện thoại"/> 
-			</div>
-		</div>	
-
-		<div class="control-group">
-		<label class="control-label"  for="inputPassword1">Mật khẩu <sup>*</sup></label>
-		<div class="controls">
-		  <input type="password" name="password" id="inputPassword1" placeholder="Mật khẩu">
-		</div>
-	  	</div>	 
-
-	  	<div class="control-group">
-		<label class="control-label"  for="inputPassword2">Nhập Lại Mật khẩu <sup>*</sup></label>
-		<div class="controls">
-		  <input type="password" name="repassword" id="inputPassword2" placeholder="Nhập Lại Mật khẩu">
-		</div>
-	  	</div>
-
 	
-	  	<div class="control-group">
-			<label class="control-label" for="address">Địa chỉ<sup>*</sup></label>
-			<div class="controls">
-			  <input type="text" name="address" id="address" placeholder="Địa chỉ"/> <span>Số nhà, đường, phường, Quận, Thành Phố </span>
-			</div>
-		</div>
-		
-		
-		<div class="controls">
-			  <button type="submit" class="btn block">Tạo tài khoản</button>
-		</div>
-		</form>
-
-		</div>
-		</div>
 
 
 		<div class="span1"> &nbsp;</div>
-		<div class="span4">
+		<div class="span6">
 			<div class="well">
-			<h5>ĐÃ ĐĂNG KÝ?</h5>
-			<form action="../controller/login.php" method="POST">
+			<h5>TÀI KHOẢN ADMIN</h5>
+			<form action="../controller/admin.php" method="POST">
 			  <div class="control-group">
-				<label class="control-label" for="inputEmail1">User Name</label>
+				<label class="control-label" for="inputname">Tên Tài Khoản</label>
 				<div class="controls">
-				  <input class="span3"  type="text"  name="name" id="inputEmail1" placeholder="User name">
+				  <input class="span3"  type="text" name="name" id="inputname" placeholder="Tên Tài Khoản">
 				</div>
 			  </div>
 			  <div class="control-group">
 				<label class="control-label" for="inputPassword1">Mật khẩu</label>
 				<div class="controls">
-				  <input type="password" class="span3" name="password" id="inputPassword1" placeholder="Password">
+				  <input type="password" class="span3" name="password" id="inputPassword" placeholder="Mật khẩu">
 				</div>
 			  </div>
 			  <div class="control-group">
 				<div class="controls">
-				  <button type="submit" class="btn">Đăng nhập</button> <a href="resetpassword.html">Quên mật khẩu</a>
+				  <button type="submit" class="btn">Đăng nhập</button> 
 				</div>
 			  </div>
 			</form>
@@ -223,8 +132,7 @@
 </div>
 </div></div>
 </div>
-<!-- MainBody End ============================= -->
-<!-- Footer ================================================================== -->
+
 	<div  id="footerSection"">
 	<div class="container">
 		<div class="row">

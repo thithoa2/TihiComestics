@@ -1,17 +1,14 @@
 <?php
 ini_set('display_errors', 1);
-include '../model/db.php';
+include 'db.php';
 $fullname = trim($_POST['fullname']);
-$email = trim($_POST['email']);
+$name = trim($_POST['name']);
 $phone = trim($_POST['phone']);
 $sex = intval( trim($_POST['sex']));
 $password =trim($_POST['password']);
 $repassword = trim($_POST['repassword']);
-$day = intval( trim($_POST['days']));
-$month = intval( trim($_POST['months']));
-$year = intval( trim($_POST['year']));
 $address = trim($_POST['address']);
-$city = trim($_POST ['city']);
+
 $msgErr = "";
 $error = false;
 if(empty($fullname)){
@@ -19,14 +16,16 @@ if(empty($fullname)){
 	echo "không được để trống Họ Tên";
 }
 
-if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-	$error=true;
-	echo "Địa chỉ ". $email . "không đúng";
-}
+
 
 if (empty($password)){
 	$error = true;
 	echo "không để trống password";
+}
+
+if (empty($phone)){
+	$error = true;
+	echo "không để trống số điện thoại";
 }
 
 if ($repassword != $password){
@@ -39,21 +38,17 @@ if ($address==""){
 	echo "Không để trống đại chỉ";
 }
 
-if (empty($city)){
-	$error = true;
-	echo "không để trống city";
-}
+
 
 if (!$error){
-	$dayofbirth =mktime(0, 0, 0, $day, $month, $year);
 
 	$password = md5(md5($password));
 
-	$sql = 'INSERT INTO `account` (`fullname`, `email`,`sex`, `phone`,`password`, `dayofbirth`, `address`, `city`) VALUES  (?, ?, ?, ?, ?, ?, ?, ?);';
+	$sql = 'INSERT INTO `account` (`ho_ten`, `user_name`,`gioi_tinh`, `dien_thoai`,`password`, `dia_chi`) VALUES  (?, ?, ?, ?, ?, ?);';
 	$stm = $conn->prepare($sql);
 	if(!$stm)
 		die('error');
-	$stm->bind_param('ssississ', $fullname, $email, $sex, $phone, $password, $dayofbirth, $address, $city);
+	$stm->bind_param('ssssss', $fullname, $name, $sex, $phone, $password, $address);
 
 	if(!$stm->execute()){
 		die(" Không thể insert thông tin đã điền");

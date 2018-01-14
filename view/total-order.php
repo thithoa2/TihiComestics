@@ -1,3 +1,12 @@
+
+<?php
+session_start();
+if (!isset($_SESSION['admin'])) {
+	die('VUI LÒNG ĐĂNG NHẬP TÀI KHOẢN QUẢN LÝ <a href="../view/admin.html"> ĐĂNG NHẬP</a>');
+
+
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -8,18 +17,18 @@
     <meta name="author" content="">
 <!--Less styles -->
    <!-- Other Less css file //different less files has different color scheam
-	<link rel="stylesheet/less" type="text/css" href="themes/less/simplex.less">
-	<link rel="stylesheet/less" type="text/css" href="themes/less/classified.less">
-	<link rel="stylesheet/less" type="text/css" href="themes/less/amelia.less">  MOVE DOWN TO activate
+	<link rel="stylesheet/less" type="text/css" href="../themes/less/simplex.less">
+	<link rel="stylesheet/less" type="text/css" href="../themes/less/classified.less">
+	<link rel="stylesheet/less" type="text/css" href="../themes/less/amelia.less">  MOVE DOWN TO activate
 	-->
-	<!--<link rel="stylesheet/less" type="text/css" href="themes/less/bootshop.less">
-	<script src="themes/js/less.js" type="text/javascript"></script> -->
+	<!--<link rel="stylesheet/less" type="text/css" href="../themes/less/bootshop.less">
+	<script src="../../themes/js/less.js" type="text/javascript"></script> -->
 	
 <!-- Bootstrap style --> 
     <link id="callCss" rel="stylesheet" href="../themes/bootshop/bootstrap.min.css" media="screen"/>
     <link href="../themes/css/base.css" rel="stylesheet" media="screen"/>
-    <link href="../themes/css/mainBody.css" rel="stylesheet" media="screen"/>
 
+    <!-- <link href="../themes/css/mainBody.css" rel="stylesheet" media="screen"/> -->
 <!-- Bootstrap style responsive -->	
 	<link href="../themes/css/bootstrap-responsive.min.css" rel="stylesheet"/>
 	<link href="../themes/css/font-awesome.css" rel="stylesheet" type="text/css">
@@ -35,6 +44,7 @@
   </head>
 <body>
 <div id="header">
+
 </div>
 <!-- Navbar ================================================== -->
 <div id="logoArea" class="navbar">
@@ -47,31 +57,38 @@
     <a class="brand" href="../index.html"><img src="../logo/logo3_edited.png" style="width: 150px" alt="Bootsshop"/></a>
 		
     <ul id="topMenu" class="nav pull-right">
-	 	 <li class=""><a href="../contact.html">Liên hệ</a></li>
-	 	 	 <li class="">
-	 <a href="#login" role="button" data-toggle="modal" style="padding-right:0"><span class="btn btn-large btn-success">Đăng nhập</span></a>
+	 		<?php
+
+	//tiến hành kiểm tra là người dùng đã đăng nhập hay chưa
+	//nếu chưa, chuyển hướng người dùng ra lại trang đăng nhập
+			if (!isset($_SESSION['admin'])) {
+				echo '<a href="../#login" role="button" data-toggle="modal" style="padding-right:0"><span class="btn btn-large btn-success">Đăng nhập</span></a>';
+			} else {
+				echo '<a <span class="btn btn-large btn-success">Hello: admin</a>';
+			}
+
+	?>
 	<div id="login" class="modal hide fade in" tabindex="-1" role="dialog" aria-labelledby="login" aria-hidden="false" >
 		  <div class="modal-header">
 			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 			<h3>Login Block</h3>
 		  </div>
 		  <div class="modal-body">
-			<form class="form-horizontal loginFrm" action="../controller/login.php" method="POST">
+			<form class="form-horizontal loginFrm">
 			  <div class="control-group">								
-				<input type="text" id="inputEmail" name ="nsmr" placeholder="User Name">
+				<input type="text" id="UserName" placeholder="User Name">
 			  </div>
 			  <div class="control-group">
-				<input type="password" id="inputPassword" name="password" placeholder="Password">
+				<input type="password" id="inputPassword" placeholder="Password">
 			  </div>
 			  <div class="control-group">
 				<label class="checkbox">
 				<input type="checkbox"> Remember me
 				</label>
 			  </div>
-			
-			<button type="submit" class="btn btn-success">Đăng nhập</button>
-			</form>		
-			
+				
+			<button type="submit" class="btn btn-success">Sign in</button>
+			</form>	
 		  </div>
 	</div>
 	</li>
@@ -91,7 +108,7 @@
 	<div class="row">
 <!-- Sidebar ================================================== -->
 	<div id="sidebar" class="span3">
-		<div class="well well-small"><a id="myCart" href="../view/product_summary.html"><img src="../themes/images/ico-cart.png" alt="cart">Giỏ hàng <span class="badge badge-warning pull-right">399.000đ</span></a></div>
+		<div class="well well-small"><a id="myCart" href="../product_summary.html"><img src="../themes/images/ico-cart.png" alt="cart">Giỏ hàng <span class="badge badge-warning pull-right">399.000đ</span></a></div>
 		<ul id="sideManu" class="nav nav-tabs nav-stacked">
 			<li class="subMenu open"><a> Son NYD</a>
 				<ul>
@@ -115,110 +132,88 @@
 <!-- Sidebar end=============================================== -->
 	<div class="span9">
     <ul class="breadcrumb">
-		<li><a href="index.html">Trang chủ</a> <span class="divider">/</span></li>
-		<li class="active">Đăng nhập</li>
+		<li><a href="../index.html">Trang chủ</a> <span class="divider">/</span></li>
+		<li class="active"> GIỎ HÀNG</li>
     </ul>
-	<h3> Đăng nhập</h3>	
+	<h3>  GIỎ HÀNG [ <small>3 SẢN PHẨM</small>]<a href="../products.html" class="btn btn-large pull-right"><i class="icon-arrow-left"></i> Tiếp tục mua hàng</a></h3>	
 	<hr class="soft"/>
-	
-	<div class="row">
-		<div class="span4">
-			<div class="well">
-			<h5>TẠO TÀI KHOẢN</h5><br/>
-			<form action="../controller/register.php" method="POST">
-				  
-			
-			<div class="control-group">
-			<label class="control-label"  for="inputLnam"> Họ Tên <sup>*</sup></label>
-			<div class="controls">
-			  <input type="text" name="fullname" id="inputLnam" placeholder="Tên">
-			</div>
-		</div>
-
-		<div class="control-group">
-		<label class="control-label"  for="inpu_name">User Name <sup>*</sup></label>
-		<div class="controls">
-		  <input type="text" name="name" id="input_name" placeholder="User Name">
-		</div>
-	  	</div>
-
-	  	<div class="control-group">
-		<label class="control-label">Giới tính <sup>*</sup></label>
-		<div class="controls">
-		<select class="span1" name="sex">
-			<option value="">-</option>
-			<option value="1">Nam.</option>
-			<option value="2">Nữ</option>
-			<option value="3">Khác</option>
-		</select>
-		</div>
-		</div>
-
-	  	<div class="control-group">
-			<label class="control-label"  for="phone">Số điện thoại <sup>*</sup></label>
-			<div class="controls">
-			  <input type="text"  name="phone" id="phone" placeholder="số điện thoại"/> 
-			</div>
-		</div>	
-
-		<div class="control-group">
-		<label class="control-label"  for="inputPassword1">Mật khẩu <sup>*</sup></label>
-		<div class="controls">
-		  <input type="password" name="password" id="inputPassword1" placeholder="Mật khẩu">
-		</div>
-	  	</div>	 
-
-	  	<div class="control-group">
-		<label class="control-label"  for="inputPassword2">Nhập Lại Mật khẩu <sup>*</sup></label>
-		<div class="controls">
-		  <input type="password" name="repassword" id="inputPassword2" placeholder="Nhập Lại Mật khẩu">
-		</div>
-	  	</div>
-
-	
-	  	<div class="control-group">
-			<label class="control-label" for="address">Địa chỉ<sup>*</sup></label>
-			<div class="controls">
-			  <input type="text" name="address" id="address" placeholder="Địa chỉ"/> <span>Số nhà, đường, phường, Quận, Thành Phố </span>
-			</div>
-		</div>
-		
-		
-		<div class="controls">
-			  <button type="submit" class="btn block">Tạo tài khoản</button>
-		</div>
-		</form>
-
-		</div>
-		</div>
-
-
-		<div class="span1"> &nbsp;</div>
-		<div class="span4">
-			<div class="well">
-			<h5>ĐÃ ĐĂNG KÝ?</h5>
-			<form action="../controller/login.php" method="POST">
-			  <div class="control-group">
-				<label class="control-label" for="inputEmail1">User Name</label>
-				<div class="controls">
-				  <input class="span3"  type="text"  name="name" id="inputEmail1" placeholder="User name">
+	<!-- <table class="table table-bordered" >
+		<tr><th>  ĐĂNG KÝ </th></tr>
+		 <tr> 
+		 <td>
+			<form class="form-horizontal">
+				<div class="control-group">
+				  <label class="control-label" for="inputUsername">Tên</label>
+				  <div class="controls">
+					<input type="text" id="inputUsername" placeholder="Username">
+				  </div>
 				</div>
-			  </div>
-			  <div class="control-group">
-				<label class="control-label" for="inputPassword1">Mật khẩu</label>
-				<div class="controls">
-				  <input type="password" class="span3" name="password" id="inputPassword1" placeholder="Password">
+				<div class="control-group">
+				  <label class="control-label" for="inputPassword1">Mật khẩu</label>
+				  <div class="controls">
+					<input type="password" id="inputPassword1" placeholder="Password">
+				  </div>
 				</div>
-			  </div>
-			  <div class="control-group">
-				<div class="controls">
-				  <button type="submit" class="btn">Đăng nhập</button> <a href="resetpassword.html">Quên mật khẩu</a>
+				<div class="control-group">
+				  <div class="controls">
+					<button type="submit" class="btn">Đăng ký</button>HOẶC <a href="../register.html" class="btn">ĐĂNG NHẬP</a>
+				  </div>
 				</div>
-			  </div>
+				<div class="control-group">
+					<div class="controls">
+					  <a href="../forgetpass.html" style="text-decoration:underline">Quên mật khẩu ?</a>
+					</div>
+				</div>
 			</form>
-		</div>
-		</div>
-	</div>	
+		  </td>
+		  </tr>
+	</table> -->		
+<?php
+include '../controller/db.php';
+$sql = 'SELECT ma_don_hang, count(id_product) as so_san_pham, sum(so_luong) as so_luong, sum(tong_tien) as tong_tien  FROM don_hang GROUP BY ma_don_hang';
+$req = $conn->query($sql);
+if ($req->num_rows > 0) {
+?>
+<table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>Mã đơn hàng</th>
+                  <th>Số sản phẩm</th>
+                  <th>số lượng</th>
+                  <th>Tổng Tiền</th>
+                  <th>chi tiết đơn hàng</th>
+				</tr>
+              </thead>
+              <tbody>
+<?php
+
+	while ($row = $req->fetch_assoc()){
+
+?>
+	
+                <tr>
+                  <td><?php echo $row['ma_don_hang'];  ?> </td>
+                  <td><?php echo $row['so_san_pham']; ?></td>
+				  <td><?php echo $row['so_luong']; ?></td>
+                  <td><?php echo $row['tong_tien']; ?></td>
+                  <td><<a href="order.php" >chi tiết</a></td>
+                  </tr>
+                  <?php 
+                  	}
+                  ?>
+				</tbody>
+            </table>
+		
+		
+<?php
+} else {
+	echo 'KHÔNG CÓ ĐƠN HÀNG NÀO!';
+
+}
+?>
+          		
+	<a href="../index.html" class="btn btn-large"><i class="icon-arrow-left"></i> Tiếp tục mua hàng </a>
+	<a href="../login.html" class="btn btn-large pull-right">THANH TOÁN <i class="icon-arrow-right"></i></a>
 	
 </div>
 </div></div>
@@ -231,16 +226,16 @@
 			
 			<div class="span2" center>
 				<h5>TIHICOSMETICS</h5>
-				<a href="index.html">GIỚI THIỆU</a>  
-				<a href="contact.html">LIÊN HỆ</a> 
-				<a href="register.html">ĐĂNG KÝ</a> 
+				<a href="../index.html">GIỚI THIỆU</a>  
+				<a href="../contact.html">LIÊN HỆ</a> 
+				<a href="../register.html">ĐĂNG KÝ</a> 
 					
 			 </div>
 			 <div class="span2" center>
 				<h5>TÀI KHOẢN</h5>
-				<a href="login.html">TÀI KHOẢN CỦA BẠN</a>
-				<a href="login.html">THÔNG TIN CÁ NHÂN</a> 
-				<a href="login.html">ĐỊA CHỈ</a> 
+				<a href="../login.html">TÀI KHOẢN CỦA BẠN</a>
+				<a href="../login.html">THÔNG TIN CÁ NHÂN</a> 
+				<a href="../login.html">ĐỊA CHỈ</a> 
 			 </div>
 			  
 			<div class="span3">
@@ -316,7 +311,7 @@
 		<a href="../themes/css/#" name="pattern17"><img src="../themes/switch/images/pattern/pattern17.png" alt="bootstrap business templates"></a>
 		<a href="../themes/css/#" name="pattern18"><img src="../themes/switch/images/pattern/pattern18.png" alt="bootstrap business templates"></a>
 		<a href="../themes/css/#" name="pattern19"><img src="../themes/switch/images/pattern/pattern19.png" alt="bootstrap business templates"></a>
-		<a href="../themes/css/#" name="pattern20"><img src="../themes/switch/images/pattern/pattern20.png" alt="bootstrap business templates"></a>
+		<a href="../themes/css/#" name="pattern20"><img src="../../themes/switch/images/pattern/pattern20.png" alt="bootstrap business templates"></a>
 		 
 	</div>
 	</div>
